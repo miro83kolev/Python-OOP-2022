@@ -1,16 +1,16 @@
-# This is a sample Python script.
+from project.library import Library
+from project.registration import Registration
+from project.user import User
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+user = User(12, 'Peter')
+library = Library()
+registration = Registration()
+registration.add_user(user, library)
+library.books_available.update({'J.K.Rowling': ['The Chamber of Secrets',
+                                                'The Prisoner of Azkaban',
+                                                'The Goblet of Fire',
+                                                'The Order of the Phoenix',
+                                                'The Half-Blood Prince',
+                                                'The Deathly Hallows']})
+library.get_book('J.K.Rowling', 'The Deathly Hallows', 10, user)
+print(user)
